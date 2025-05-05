@@ -54,6 +54,7 @@ GEMINI_API_KEY=your_api_key_here
 streamlit run app.py
 ```
 
+
 ## Usage
 
 1. Enter a city name (and optionally a country) in the sidebar.
