@@ -8,6 +8,7 @@ load_dotenv()
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
+
 def get_travel_info(city, country=None):
     """
     Get travel information about a city using Gemini API
@@ -25,7 +26,7 @@ def get_travel_info(city, country=None):
     Format as bullet points for each category.
     """
     
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel(model_name="gemini-1.5-flash")  # Fixed model name
     response = model.generate_content(prompt)
     return response.text
 
@@ -48,7 +49,7 @@ def generate_travel_itinerary(city, country=None, days=3, interests=None):
     Include a brief one-line description for each place or activity.
     """
     
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')  # Fixed model name
     response = model.generate_content(prompt)
     return response.text
 
@@ -68,7 +69,7 @@ def get_local_phrases(city, country=None):
     Format as a numbered list with clear separations between each phrase.
     """
     
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')  # Fixed model name
     response = model.generate_content(prompt)
     return response.text
 
@@ -91,7 +92,7 @@ def get_budget_estimation(city, country=None, trip_days=3, travel_style="mid-ran
     Also include an estimated total budget for the entire {trip_days}-day trip.
     """
     
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')  # Fixed model name
     response = model.generate_content(prompt)
     return response.text
 
@@ -112,6 +113,6 @@ def get_travel_tips(city, country=None):
     Format as bullet points under clear headings.
     """
     
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')  # Fixed model name
     response = model.generate_content(prompt)
     return response.text
